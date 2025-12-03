@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tchapita Empréstimo - Tchapo Tchapo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Tchapita Empréstimo</h1>
+        <p class="slogan">Obtenha o seu empréstimo em 10 minutos!</p>
+    </header>
+
+    <div class="container">
+        
+        <div id="page1">
+            
+            <h2>1. Seus Dados e Identificação</h2>
+            <p style="text-align: center;">Preencha os dados para começar seu pedido de empréstimo.</p>
+
+            <label for="nome">Seu Nome Completo:</label>
+            <input type="text" id="nome" placeholder="Ex: João da Silva" required>
+
+            <label for="telefone">Número de Telefone (M-Pesa/e-Mola/m-Kesh):</label>
+            <input type="number" id="telefone" placeholder="Ex: 84xxxxxxx" required>
+
+            <label for="provincia">Província de Residência:</label>
+            <select id="provincia" required>
+                <option value="">Selecione a Província</option>
+                <option>Maputo (Cidade)</option>
+                <option>Gaza</option>
+                <option>Inhambane</option>
+                <option>Sofala</option>
+                <option>Manica</option>
+                <option>Tete</option>
+                <option>Zambézia</option>
+                <option>Nampula</option>
+                <option>Niassa</option>
+                <option>Cabo Delgado</option>
+                </select>
+            
+            <label for="bi-frente">Foto do Documento (B.I.) - Frente:</label>
+            <input type="file" id="bi-frente" accept="image/*" required>
+
+            <label for="bi-verso">Foto do Documento (B.I.) - Verso:</label>
+            <input type="file" id="bi-verso" accept="image/*" required>
+            
+            <button class="btn-primary" onclick="goToPage2()">Avançar para Simulação</button>
+        </div>
+
+        <div id="page2">
+            <h2>2. Escolha o Valor e o Prazo</h2>
+            
+            <label for="valor">Valor do Empréstimo (Mts):</label>
+            <input type="number" id="valor" min="500" max="20000" value="1000">
+            <p class="aviso">Valores permitidos: de 500 Mts até 20.000 Mts.</p>
+            
+            <button class="btn-primary" onclick="simular()">Simular</button>
+
+            <div id="resultado" style="display: none;">
+                <h2 style="margin-top: 30px;">Resultado da Simulação</h2>
+                <div class="simulacao-resultado">
+                    <p>Valor Solicitado: <span id="valorSolicitado"></span> Mts</p>
+                    <p>Taxa Total do Empréstimo (30%): <span id="custoEmprestimo"></span> Mts</p>
+                    <p class="valor-total">Valor Total a Pagar: <span id="valorTotal"></span> Mts</p>
+                </div>
+                
+                <h3 style="text-align: left; margin-top: 25px;">Escolha uma Opção de Prazo:</h3>
+                <div id="opcoesPrazo">
+                    </div>
+
+                <button class="btn-primary btn-secondary" onclick="goToPage1()">Voltar ao Cadastro</button>
+            </div>
+        </div>
+
+        <div id="page3">
+            <h2>3. Pagamento da Taxa de Processamento</h2>
+            <p style="text-align: center;">Para prosseguir com a análise do seu pedido de empréstimo de <span id="loanAmountDisplay"></span> Mts, efetue o pagamento da taxa de processamento.</p>
+
+            <div class="taxa-info">
+                <p>Taxa de Processamento (10% do Valor Solicitado):</p>
+                <p class="taxa-valor"><span id="feeDisplay">0.00</span> Mts</p>
+                <hr>
+                <p>Instruções: Pague o valor acima para o nosso número e-Mola Edson J. Lazaro Emprestimos.</p>
+                <p style="font-size: 1.1em; font-weight: bold; color: #007bff;">Número de Pagamento: 865697730</p>
+            </div>
+
+            <label for="comprovativo">Comprovativo de Pagamento:</label>
+            <input type="file" id="comprovativo" accept="image/*, application/pdf" required>
+            <p class="aviso">Carregue a imagem ou PDF do talão de pagamento.</p>
+
+            <button class="btn-primary" onclick="alert('Comprovativo enviado! Seu pedido será analisado em 10minutos. Aguarde pela aprovação.')">
+                Finalizar Pedido e Enviar Comprovativo
+            </button>
+            
+            <button class="btn-primary btn-secondary" onclick="goToPage2()">Voltar à Simulação</button>
+        </div>
+
+    </div>
+
+    <div class="chatbot-btn" onclick="openChatModal()">
+        💬
+    </div>
+
+    <div id="chatModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeChatModal()">&times;</span>
+            <h2>Assistente de Apoio ao Cliente</h2>
+            <p>Deixe sua pergunta ou comentário e entraremos em contacto brevemente.</p>
+
+            <label for="chat-nome">Seu Nome:</label>
+            <input type="text" id="chat-nome" placeholder="Seu nome completo">
+
+            <label for="chat-telefone">Seu Número de Telefone:</label>
+            <input type="number" id="chat-telefone" placeholder="84/86 XXXXXXX">
+
+            <label for="chat-mensagem">Sua Mensagem:</label>
+            <textarea id="chat-mensagem" rows="4" placeholder="Escreva sua pergunta aqui..."></textarea>
+
+            <button class="btn-primary" onclick="sendChatMessage()">
+                Enviar Mensagem
+            </button>
+        </div>
+    </div>
+    
+    <div id="social-proof-popup">
+        </div>
+
+    <footer>
+        <p>
+            &copy; 2025 Empréstimos Rápidos. Todos os direitos reservados.
+        </p>
+        <p>
+            📞 Telefone: +258 84 900 1234 | 📧 Email: <a href="mailto:apoio@emprestimos.co.mz">apoio@emprestimos.co.mz</a>
+        </p>
+        <p>
+            📍 Endereço: Av. 25 de Setembro, Nº 1234, Cidade de Nampula, Moçambique
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
