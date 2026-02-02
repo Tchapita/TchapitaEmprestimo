@@ -1,218 +1,194 @@
-/*
-    Estilos Globais
-*/
-body { 
-    font-family: 'Open Sans', sans-serif; 
-    padding: 0; 
-    margin: 0; 
-    background-color: #f4f4f9; 
-    color: #333; 
-    padding-top: 100px; /* Espaço para o header fixo */
-}
 
-/*
-    Estilo do Cabeçalho Principal (Fixo)
-*/
-header.main-header {
-    background-color: #007bff; /* Azul vibrante */
-    color: white;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: fixed; /* Tornar o header fixo */
-    top: 0;
-    width: 100%;
-    z-index: 50; /* Z-index alto para ficar acima de tudo */
-}
-header.main-header h1 {
-    font-family: 'Montserrat', sans-serif; 
-    font-size: 2.2em;
+* {
     margin: 0;
-    line-height: 1; 
-}
-header.main-header .slogan {
-    font-size: 1em;
-    font-weight: 700;
-    margin-top: 5px;
-}
-
-/*
-    Estilo do Container Principal
-*/
-.container { 
-    max-width: 650px; 
-    margin: 0 auto 30px auto; 
-    background-color: white; 
-    padding: 30px; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-/*
-    Estilos de Formulário e Elementos
-*/
-h2 { color: #007bff; text-align: center; } 
-label { display: block; margin-top: 15px; font-weight: bold; }
-input[type="text"], input[type="number"], input[type="date"], select, input[type="file"], textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
-.btn-primary {
-    background-color: #28a745; 
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 20px;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
+
+body {
+    background: #f0f3f9;
+    color: #333;
 }
-.btn-primary:hover { background-color: #218838; }
-.btn-secondary {
-    background-color: #6c757d; 
-    margin-top: 10px;
+
+.header {
+    text-align: center;
+    padding: 30px 10px;
+    background: #0077ff;
+    color: #fff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
-.opcao-prazo {
-    background-color: #eaf3ff;
-    border: 1px solid #007bff;
-    padding: 15px;
+
+.logo-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
     margin-bottom: 10px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
-.opcao-prazo button {
-    width: auto;
-    margin: 0;
-    padding: 8px 15px;
-    background-color: #007bff;
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
 }
-.taxa-info {
-    background-color: #fff3cd;
-    border: 1px solid #ffe099;
+.logo span {
+    color: #ffdd55;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
     padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-.taxa-valor {
-    font-size: 2em;
-    color: #dc3545;
-    font-weight: bold;
 }
 
-/*
-    Controle de Páginas
-*/
-#page2, #page3 { display: none; }
+.page {
+    display: none;
+    animation: fade 0.5s;
+}
+.page.active {
+    display: block;
+}
 
-/*
-    Rodapé
-*/
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    position: relative; 
+@keyframes fade {
+    from {opacity: 0;} to {opacity: 1;}
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+label {
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+}
+
+input, select {
     width: 100%;
-    left: 0;
-    z-index: 10;
-    margin-top: 50px; 
-}
-footer p {
-    margin: 5px 0;
-    font-size: 0.9em;
-}
-footer a {
-    color: #007bff;
-    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
 }
 
-/*
-    Chatbot Flutuante
-*/
+.btn {
+    width: 100%;
+    padding: 14px;
+    background: #00a86b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn:hover { background: #008f5a; }
+
+.btn.secondary {
+    background: #777;
+}
+
+.subtitle {
+    text-align: center;
+    opacity: 0.7;
+}
+
+.total {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 10px 0;
+    color: #0077ff;
+}
+
+.taxa-label { font-size: 1.2rem; }
+.taxa-valor { font-size: 2rem; color: #e63946; font-weight: 700; }
+.numero-pagamento {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #0077ff;
+    margin: 15px 0;
+}
+
+.hidden { display: none; }
+
+/* Chatbot */
 .chatbot-btn {
     position: fixed;
-    bottom: 30px; 
-    right: 20px;
-    background-color: #007bff;
+    bottom: 25px;
+    right: 25px;
+    background: #0077ff;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
-    border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5em;
-    text-align: center;
-    line-height: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1.7rem;
     cursor: pointer;
-    z-index: 20;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/*
-    Modal do Chatbot
-*/
-.modal { 
-    display: none; 
+.modal {
+    display: none;
     position: fixed;
-    z-index: 30;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4); 
+    background: rgba(0,0,0,0.5);
 }
-.modal-content { 
-    background-color: #fefefe;
-    margin: 10% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+.modal-content {
+    background: white;
+    width: 90%;
     max-width: 400px;
-    border-radius: 8px;
-    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
 }
-.close-btn { 
-    color: #aaa;
+.close-btn {
     float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-.close-btn:hover, .close-btn:focus { 
-    color: #000;
-    text-decoration: none;
     cursor: pointer;
+    font-size: 1.4rem;
 }
 
-/*
-    Pop-up de Prova Social
-*/
+/* Footer */
+.footer {
+    margin-top: 50px;
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Pop-up Prova Social */
 #social-proof-popup {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    background-color: #28a745; /* Verde de sucesso */
+    background: #28a745;
     color: white;
-    padding: 12px 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    z-index: 40;
+    padding: 12px 18px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
     opacity: 0;
-    transition: opacity 0.5s, transform 0.5s;
-    transform: translateY(100%);
-    font-size: 0.9em;
-    min-width: 250px;
+    transform: translateY(20px);
+    transition: 0.4s;
 }
 #social-proof-popup.show {
     opacity: 1;
     transform: translateY(0);
-}
+} { display: none; }
+
