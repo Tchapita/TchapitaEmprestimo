@@ -1,149 +1,154 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tchapita Empréstimo - Tchapo Tchapo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tchapita Empréstimos - Simulação Rápida</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <header class="main-header">
-        <h1>Tchapita Empréstimo</h1>
-        <p class="slogan">Obtenha o seu empréstimo em 10 minutos!</p>
+    <header class="header">
+      <!-- <img src="logo.png" alt="Tchapita Logo" class="logo-img" /> -->
+        <div class="logo">Tchapita <span>Empréstimos</span></div>
+        <p class="tagline">Dinheiro rápido, simples e seguro</p>
     </header>
 
-    <div class="container">
-        
-        <div id="page1">
-            
-            <h2>1. Seus Dados e Identificação</h2>
-            <p style="text-align: center;">Preencha os dados para começar seu pedido de empréstimo.</p>
+    <main class="container">
 
-            <label for="nome">Seu Nome Completo:</label>
-            <input type="text" id="nome" placeholder="Ex: João da Silva" required>
+        <!-- Página 1 -->
+        <section id="page1" class="page active">
+            <h2>1. Dados Pessoais</h2>
+            <p class="subtitle">Preencha os dados para iniciar o pedido.</p>
 
-            <label for="telefone">Número de Telefone (M-Pesa/e-Mola/m-Kesh):</label>
-            <input type="number" id="telefone" placeholder="Ex: 84xxxxxxx" required>
+            <div class="card">
+                <label>Nome Completo</label>
+                <input type="text" id="nome" placeholder="Ex: João Matavele" />
 
-            <label for="provincia">Província de Residência:</label>
-            <select id="provincia" required>
-                <option value="">Selecione a Província</option>
-                <option>Maputo (Cidade)</option>
-                <option>Gaza</option>
-                <option>Inhambane</option>
-                <option>Sofala</option>
-                <option>Manica</option>
-                <option>Tete</option>
-                <option>Zambézia</option>
-                <option>Nampula</option>
-                <option>Niassa</option>
-                <option>Cabo Delgado</option>
+                <label>Telefone (Mpesa / e-Mola / mKesh)</label>
+                <input type="number" id="telefone" placeholder="84/85/86 xxxx xxx" />
+
+                <label>Província</label>
+                <select id="provincia">
+                    <option value="">Selecione</option>
+                    <option>Maputo Cidade</option>
+                    <option>Maputo Província</option>
+                    <option>Gaza</option>
+                    <option>Inhambane</option>
+                    <option>Sofala</option>
+                    <option>Manica</option>
+                    <option>Tete</option>
+                    <option>Zambézia</option>
+                    <option>Nampula</option>
+                    <option>Niassa</option>
+                    <option>Cabo Delgado</option>
                 </select>
-            
-            <label for="bi-frente">Foto do Documento (B.I.) - Frente:</label>
-            <input type="file" id="bi-frente" accept="image/*" required>
 
-            <label for="bi-verso">Foto do Documento (B.I.) - Verso:</label>
-            <input type="file" id="bi-verso" accept="image/*" required>
-            
-            <button class="btn-primary" onclick="goToPage2()">Avançar para Simulação</button>
-        </div>
+                <label>Documento BI — Frente</label>
+                <input type="file" id="bi-frente" accept="image/*" />
 
-        <div id="page2">
-            <h2>2. Escolha o Valor e o Prazo</h2>
-            
-            <label for="valor">Valor do Empréstimo (Mts):</label>
-            <input type="number" id="valor" min="500" max="20000" value="1000">
-            <p class="aviso">Valores permitidos: de 500 Mts até 20.000 Mts.</p>
-            
-            <button class="btn-primary" onclick="simular()">Simular</button>
-
-            <div id="resultado" style="display: none;">
-                <h2 style="margin-top: 30px;">Resultado da Simulação</h2>
-                <div class="simulacao-resultado">
-                    <p>Valor Solicitado: <span id="valorSolicitado"></span> Mts</p>
-                    <p>Taxa Total do Empréstimo (30%): <span id="custoEmprestimo"></span> Mts</p>
-                    <p class="valor-total">Valor Total a Pagar: <span id="valorTotal"></span> Mts</p>
-                </div>
+                <label>Documento BI — Verso</label>
+                <input type="file" id="bi-verso" accept="image/*" />
                 
-                <h3 style="text-align: left; margin-top: 25px;">Escolha uma Opção de Prazo:</h3>
-                <div id="opcoesPrazo">
-                    </div>
+                <label>Telefone Familiar </label>
+                <input type="number" id="telefone" placeholder="84/85/86 xxxx xxx" />
+                  <label>Parentesco</label>
+                <select id="provincia">
+                    <option value="">Selecione</option>
+                    <option>Marido</option>
+                    <option>Esposa</option>
+                    <option>Irmão/a</option>
+                    
+                </select>
 
-                <button class="btn-primary btn-secondary" onclick="goToPage1()">Voltar ao Cadastro</button>
+                <button class="btn" onclick="goToPage2()">Avançar</button>
             </div>
-        </div>
+        </section>
 
-        <div id="page3">
-            <h2>3. Pagamento da Taxa de Processamento</h2>
-            <p style="text-align: center;">Para prosseguir com a análise do seu pedido de empréstimo de <span id="loanAmountDisplay"></span> Mts, efetue o pagamento da taxa de processamento.</p>
 
-            <div class="taxa-info">
-                <p>Taxa de Processamento (10% do Valor Solicitado):</p>
-                <p class="taxa-valor"><span id="feeDisplay">0.00</span> Mts</p>
-                <hr>
-                <p>Instruções: Pague o valor acima para o nosso número e-Mola Edson J. Lazaro Emprestimos.</p>
-                <p style="font-size: 1.1em; font-weight: bold; color: #007bff;">Número de Pagamento: 865697730</p>
+        <!-- Página 2 -->
+        <section id="page2" class="page">
+            <h2>2. Pedido do Empréstimo</h2>
+            <p class="subtitle">Escolha o valor do empréstimo.</p>
+
+            <div class="card">
+                <label>Valor pretendido (2000 a 250.000 MT)</label>
+                <input type="number" id="valor" value="2000" min="2000" max="250000" />
+
+                <button class="btn" onclick="simular()">Simular</button>
+
+                <div id="resultado" class="resultado hidden">
+                    <h3>Resultado</h3>
+                    <p>Valor solicitado: <strong id="valorSolicitado"></strong> MT</p>
+                    <p>Custos (Taxa 30%): <strong id="custoEmprestimo"></strong> MT</p>
+                    <p class="total">Total a pagar: <strong id="valorTotal"></strong> MT</p>
+
+                    <h4>Opções de Pagamento</h4>
+                    <div id="opcoesPrazo"></div>
+                </div>
+
+                <button class="btn secondary" onclick="goToPage1()">Voltar</button>
             </div>
+        </section>
 
-            <label for="comprovativo">Comprovativo de Pagamento:</label>
-            <input type="file" id="comprovativo" accept="image/*, application/pdf" required>
-            <p class="aviso">Carregue a imagem ou PDF do talão de pagamento.</p>
+        
+        <!-- Página 3 -->
+        <section id="page3" class="page">
+            <h2>3. Pagamento da Taxa</h2>
+            <p class="subtitle">Confirme o pagamento da taxa de processamento.</p>
 
-            <button class="btn-primary" onclick="alert('Comprovativo enviado! Seu pedido será analisado em 10minutos. Aguarde pela aprovação.')">
-                Finalizar Pedido e Enviar Comprovativo
-            </button>
-            
-            <button class="btn-primary btn-secondary" onclick="goToPage2()">Voltar à Simulação</button>
-        </div>
+            <div class="card">
+                <p class="taxa-label">Taxa de Processamento (10%):</p>
+                <p class="taxa-valor" id="feeDisplay">0 MT</p>
+                
+                <p>Use o número abaixo para o pagamento Edson J. Lázaro Emprestimos:</p>
+                <p class="numero-pagamento">📱 865 697 730</p>
 
-    </div>
+                <label>Carregar Comprovativo</label>
+                <input type="file" id="comprovativo" accept="image/*,application/pdf" required>
 
-    <div class="chatbot-btn" onclick="openChatModal()">
-        💬
-    </div>
+                <button class="btn" onclick="finalizarPedido()">Finalizar Pedido</button>
+                <button class="btn secondary" onclick="goToPage2()">Voltar</button>
+            </div>
+        </section>
 
+    </main>
+
+    <!-- Pop-up de Prova Social -->
+    <div id="social-proof-popup"></div>
+
+    <!-- Chatbot Flutuante -->
+    <div class="chatbot-btn" onclick="openChatModal()">💬</div>
+
+    <!-- Modal do Chatbot -->
     <div id="chatModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeChatModal()">&times;</span>
-            <h2>Assistente de Apoio ao Cliente</h2>
-            <p>Deixe sua pergunta ou comentário e entraremos em contacto brevemente.</p>
+            <h2>Assistente de Apoio</h2>
 
-            <label for="chat-nome">Seu Nome:</label>
-            <input type="text" id="chat-nome" placeholder="Seu nome completo">
+            <label>Nome</label>
+            <input id="chat-nome" type="text" placeholder="Seu nome" />
 
-            <label for="chat-telefone">Seu Número de Telefone:</label>
-            <input type="number" id="chat-telefone" placeholder="84/86 XXXXXXX">
+            <label>Telefone</label>
+            <input id="chat-telefone" type="number" placeholder="84/85/86 XXXX XXX" />
 
-            <label for="chat-mensagem">Sua Mensagem:</label>
-            <textarea id="chat-mensagem" rows="4" placeholder="Escreva sua pergunta aqui..."></textarea>
+            <label>Mensagem</label>
+            <textarea id="chat-msg" placeholder="Escreva aqui..."></textarea>
 
-            <button class="btn-primary" onclick="sendChatMessage()">
-                Enviar Mensagem
-            </button>
+            <button class="btn" onclick="sendChatMessage()">Enviar</button>
         </div>
     </div>
-    
-    <div id="social-proof-popup">
-        </div>
 
-    <footer>
-        <p>
-            &copy; 2025 Empréstimos Rápidos. Todos os direitos reservados.
-        </p>
-        <p>
-            📞 Telefone: +258 84 900 1234 | 📧 Email: <a href="mailto:apoio@emprestimos.co.mz">apoio@emprestimos.co.mz</a>
-        </p>
-        <p>
-            📍 Endereço: Av. 25 de Setembro, Nº 1234, Cidade de Nampula, Moçambique
-        </p>
+    <footer class="footer">
+        <p>&copy; 2025 Tchapita Empréstimos — Todos os direitos reservados.</p>
+        <p>📞 86 5697730 | ✉️ apoio@emprestimos.co.mz</p>
+        <p>📍 Av. 25 de Setembro, Nampula</p>
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
+
